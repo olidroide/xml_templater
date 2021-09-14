@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: Tests
 on: [push]
 
 jobs:
@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: [3.9]
 
     steps:
       - uses: actions/checkout@v2
@@ -20,5 +20,5 @@ jobs:
 #      - name: Install dependencies
 #        run: pip install -r requirements.txt
 
-      - name: Run Test
+      - name: Run Tests
         run: python -m unittest discover tests
