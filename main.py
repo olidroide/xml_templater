@@ -21,30 +21,40 @@ class ParserXML:
     @staticmethod
     def parse_child_xml(parent_element: ET.XML):
         key = parent_element.tag
-        saved_value = None
+
+        try:
+            level_id = ParserXML._get_level_id(parent_element)
+        except Exception as e:
+            level_id = None
 
         for child in parent_element:
-            if ParserXML._is_leaf(child):
-                if child.tag.endswith("ID"):
-                    saved_value = child.text
-                    continue
-
-                if saved_value:
-                    print(f"key: {key}\tsaved_value: {saved_value} child.tag: {child.tag}")
-                    yield f"{key}.{saved_value}.{child.tag}", child.text
+            if ParserXML._is_id(child):
+                continue
+            elif ParserXML._is_leaf(child):
+                print(f"key: {key}\tlevel_id: {level_id} child.tag: {child.tag} child.text: {child.text}")
+                yield f"{key}.{level_id}.{child.tag}", child.text
 
             else:
                 for subkey, value in ParserXML.parse_child_xml(child):
-                    print(f"\tkey: {key}\t\tsubkey: {subkey}")
-                    if saved_value:
-                        yield f"{saved_value}.{key}.{subkey}", value
-                        saved_value = None
+                    if level_id:
+                        yield f"{key}.{level_id}.{subkey}", value
                     else:
                         yield f"{key}.{subkey}", value
 
     @staticmethod
     def _is_leaf(element) -> bool:
         return len(list(element)) <= 0
+
+    @staticmethod
+    def _is_id(element):
+        return ParserXML._is_leaf(element) and element.tag.endswith("ID")
+
+    @staticmethod
+    def _get_level_id(element) -> str:
+        for child in element:
+            if ParserXML._is_id(child):
+                return child.text
+        raise ValueError
 
 
 class FileHandler:
