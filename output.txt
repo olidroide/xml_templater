@@ -1,2 +1,3 @@
-El titulo es ELQUESE
-El valor definitivo es TEXTO QUE QUIERO SACAR que no es lo mismo que OTRO TEXTO QUE QUIERO SACAR
+This is a TITLE EXAMPLE
+A valid value for statement is STATEMENT EXAMPLE
+Another statement is STATEMENT EXAMPLE 2

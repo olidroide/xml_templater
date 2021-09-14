@@ -1,2 +1,3 @@
-El titulo es *|policy.1234.title|*
-El valor definitivo es *|policy.1234.control_list.control.1111.statement|* que no es lo mismo que *|policy.1234.control_list.control.2222.statement|*
+This is a *|policy.1234.title|*
+A valid value for statement is *|policy.1234.control_list.control.1111.statement|*
+Another statement is *|policy.1234.control_list.control.2222.statement|*
