@@ -1,2 +1,2 @@
-El titulo es *|policy.title|*
+El titulo es *|policy.1234.title|*
 El valor definitivo es *|policy.1234.control_list.control.1111.statement|* que no es lo mismo que *|policy.1234.control_list.control.2222.statement|*
