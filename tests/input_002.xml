@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<POLICY>
+   <ID>1234</ID>
+   <TITLE>ELQUESE</TITLE>
+   <CONTROL_LIST>
+      <CONTROL>
+         <ID>1111</ID>
+         <STATEMENT>TEXTO QUE QUIERO SACAR</STATEMENT>
+         <DESCRIPTION>TEXT EXAMPLE DESCRIPTION</DESCRIPTION>
+      </CONTROL>
+      <CONTROL>
+         <ID>2222</ID>
+         <STATEMENT>OTRO TEXTO QUE QUIERO SACAR</STATEMENT>
+         <SUBCONTROL>
+            <CONTROL>
+               <ANOTHER>
+                  <INFINITE>
+                      <ID>3333</ID>
+                      <STATEMENT>el texto 3</STATEMENT>
+                  </INFINITE>
+               </ANOTHER>
+            </CONTROL>
+         </SUBCONTROL>
+      </CONTROL>
+   </CONTROL_LIST>
+</POLICY>

@@ -14,3 +14,14 @@ class InputDataTests(unittest.TestCase):
         }
         parsed_dict = InputData(path='input_001.xml').get_dict()
         self.assertDictEqual(parsed_dict, expected_dict)
+
+    def testValidXMLWithManyIndents(self):
+        expected_dict = {
+            'policy.1234.title': 'ELQUESE',
+            'policy.1234.control_list.control.1111.statement': 'TEXTO QUE QUIERO SACAR',
+            'policy.1234.control_list.control.1111.description': 'TEXT EXAMPLE DESCRIPTION',
+            'policy.1234.control_list.control.2222.statement': 'OTRO TEXTO QUE QUIERO SACAR',
+            'policy.1234.control_list.control.2222.subcontrol.control.another.infinite.3333.statement': 'el texto 3'
+        }
+        parsed_dict = InputData(path='input_002.xml').get_dict()
+        self.assertDictEqual(parsed_dict, expected_dict)

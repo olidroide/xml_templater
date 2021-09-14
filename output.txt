@@ -1,1 +1,2 @@
-El titulo es *|policy.title|* El valor definitivo es *|policy.control_list.control.1111.statement|* que no es lo mismo que *|policy.control_list.control.2222.statement|* 
+El titulo es ELQUESE
+El valor definitivo es TEXTO QUE QUIERO SACAR que no es lo mismo que OTRO TEXTO QUE QUIERO SACAR
