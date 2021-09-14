@@ -1,4 +1,5 @@
 import unittest
+from pathlib import Path
 
 from main import InputData
 
@@ -12,7 +13,8 @@ class InputDataTests(unittest.TestCase):
             'policy.1234.control_list.control.2222.statement': 'OTRO TEXTO QUE QUIERO SACAR',
             'policy.1234.control_list.control.2222.subcontrol.control.3333.statement': 'el texto 3'
         }
-        parsed_dict = InputData(path='input_001.xml').get_dict()
+        path = Path(__file__).resolve().parent / 'input_001.xml'
+        parsed_dict = InputData(path=path).get_dict()
         self.assertDictEqual(parsed_dict, expected_dict)
 
     def testValidXMLWithManyIndents(self):
@@ -23,5 +25,6 @@ class InputDataTests(unittest.TestCase):
             'policy.1234.control_list.control.2222.statement': 'OTRO TEXTO QUE QUIERO SACAR',
             'policy.1234.control_list.control.2222.subcontrol.control.another.infinite.3333.statement': 'el texto 3'
         }
-        parsed_dict = InputData(path='input_002.xml').get_dict()
+        path = Path(__file__).resolve().parent / 'input_002.xml'
+        parsed_dict = InputData(path=path).get_dict()
         self.assertDictEqual(parsed_dict, expected_dict)
